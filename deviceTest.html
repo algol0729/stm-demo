@@ -1,0 +1,205 @@
+<div id="deviceTest">
+    <el-row>
+        <el-button type="" @click="FAopen">发卡机打开设备</el-button>
+        <el-button type="" @click="FAreset">发卡机复位设备</el-button>
+        <el-button type="" @click="FAgetStatus">发卡机获取状态</el-button>
+        <el-button type="" @click="FAdispenseCard">发卡机发卡</el-button>
+        <el-button type="" @click="FAtunka">发卡机吞卡</el-button>
+        <el-button type="" @click="FAtuka">发卡机吐卡</el-button>
+        <el-button type="" @click="FAsetnum">发卡机设置卡箱数量</el-button>
+        <el-button type="" @click="FAgetXxinx">发卡机获取卡箱信息</el-button>
+        <el-button type="" @click="FAisCard">发卡机获取卡的位置(卡口)</el-button>
+    </el-row>
+    <el-row>
+        <el-button type=""  @click="DUopen">读卡器打开设备</el-button>
+        <el-button type=""  @click="DUreset">读卡器复位设备</el-button>
+        <el-button type="" @click="DUStutas">读卡器获取设备状态</el-button>
+        <el-button type="" @click="DUreadCard">读卡器读卡</el-button>
+        <el-button type=""  @click="DUgetARQC">读卡器获取ARQC</el-button>
+        <el-button type="" @click="DUejectCardReader">读卡器吐卡</el-button>
+        <el-button type="" @click="DURetainCardReader">读卡器吞卡</el-button>
+        <el-button type="" @click="DUcancle">读卡器取消读卡</el-button>
+        <el-button type="" @click="DUweizhi">读卡器获取卡的位置(卡口)</el-button>
+    </el-row>
+    <el-row>
+        <el-button type="" @click="SHopen">身份证打卡设备</el-button>
+        <el-button type="" @click="SHreset">身份证复位设备</el-button>
+        <el-button type="" @click="SHread">身份证读卡</el-button>
+        <el-button type="" @click="SHtui">身份证吐卡</el-button>
+        <el-button type=""  @click="SHweiz">身份证获取卡位置(卡口)</el-button>
+        <el-button type=""  @click="SHStatus">身份证获取设备状态</el-button>
+        <el-button type="" @click="SHcancel">身份证取消读卡</el-button>
+    </el-row>
+    <el-row>
+        <el-button type="" @click="PINopen">密码键盘打开设备</el-button>
+        <el-button type=""  @click="PINreset">密码键盘复位设备</el-button>
+        <el-input v-model="FL1" placeholder="分量一" maxlength="32"></el-input>
+        <el-input v-model="FL2" placeholder="分量二" maxlength="32"></el-input>
+        <el-button type="" @click="PINXOR">密码键盘异或</el-button>
+        <el-button type="" @click="PINMMMK">注入明文主密钥</el-button>
+        <el-button type=""  @click="PINMMK">注入密文主密钥</el-button>
+        <el-button type="" @click="PINPIN">注入工作密钥</el-button>
+        <el-input id="password"></el-input>
+        <el-button type="" @click="PINgetBlock">获取密钥块</el-button>
+        <el-button type="" @click="PINStatus">密码键盘设备状态</el-button>
+        <el-button type="" @click="PINcancel">密码键盘取消操作</el-button>
+    </el-row>
+    <el-row>+
+        <el-button type="" @click="Popen">凭条打开设备</el-button>
+        <el-button type=""  @click="Preset">凭条复位设备</el-button>
+        <el-button type="" @click="PStatus">凭条设备状态</el-button>
+        <el-button type="" @click="PprintText">凭条打印数据</el-button>
+        <el-button type="" @click="PprintImg">凭条打印图片</el-button>
+        <el-button type="" @click="Pcut">凭条打印切纸</el-button>
+        <el-button type="" @click="PgetPage">凭条获取纸量</el-button>
+        <!-- <el-button type="">凭条打印文本文件</el-button> -->
+    </el-row>
+    <el-row>
+        <el-button type="" @click="FinOpen">指纹仪打开设备</el-button>
+        <el-button type=""  @click="Finreset">指纹仪重置设备</el-button>
+        <el-button type="" @click="FinStatus">指纹仪获取状态</el-button>
+        <el-button type="" @click="FinData">指纹仪获取指纹</el-button>
+        <el-button type="" @click="Fincancel">指纹仪取消</el-button>
+    </el-row>
+    <el-row>
+        <el-button type="" @click="SIUopen">指示灯打开设备</el-button>
+        <el-button type="" @click="SIUStatus">指示灯获取状态</el-button>
+        <el-button type=""  @click="SIUreset">指示灯复位设备</el-button>
+        <el-select v-model="suilifht" placeholder="请选择模块">
+            <el-option v-for="item in suilifhts" :value="item.value" :label="item.label"></el-option>
+        </el-select>
+        <el-select v-model="suiiStatus" placeholder="请选择闪烁频率">
+            <el-option v-for="item in suiiStatuss" :value="item.value" :label="item.label"></el-option>
+        </el-select>
+        <el-button type=""  @click="SIUset">指示灯设置灯</el-button>
+        <!-- <el-select v-model="suilType" placeholder="请选择设备门">
+            <el-option v-for="item in suilTypes" :value="item.value" :label="item.label"></el-option>
+        </el-select>
+        <el-button type="" @click="SIUDoorStatus">指示灯门状态</el-button> -->
+    </el-row>
+    <el-row>
+        <el-button type="" @click="UKopen">U盾打开设备</el-button>
+        <el-button type=""  @click="UKreset">U盾复位设备</el-button>
+        <el-button type=""  @click="UKStatus">U盾获取设备状态</el-button>
+        <el-button type="" @click="UKsend">U盾发key</el-button>
+        <el-button type=""  @click="UKread">U盾读key</el-button>
+        <el-button type="" @click="UKtu">U盾吐key</el-button>
+        <el-button type=""  @click="UKtun">U盾吞key</el-button>
+        <el-button type="" @click="UKisHave">U盾口有无盾</el-button>
+        <el-button type="" @click="UKgetInfo">U盾获取盾箱信息</el-button>
+        <el-button type=""  @click="UKclear">U盾清空回收箱</el-button>
+        <el-input v-model="ukeyNum" placeholder="请输入设置数量（默认盾箱1）"></el-input>
+        <el-button type=""  @click="UKsetNum">U盾设置盾箱（盾数量）</el-button>
+    </el-row>
+    <el-row>
+        <el-button type=""  @click="DBopen">双目打开设备</el-button>
+        <el-button type=""  @click="DBreset">双目复位设备</el-button>
+        <el-select v-model="doubleNum" placeholder="请选择摄像头操作">
+            <el-option v-for="item in doubleNums" :value="item.value" :label="item.label"></el-option>
+        </el-select>
+        <el-button type="" @click="DBZHIX">双目执行</el-button>
+    </el-row>
+    <el-row>
+        <el-button type="" @click="writerto">写入本地文件</el-button>
+        <el-button type="" @click="readfrom">读取本地文件</el-button>
+    </el-row>
+    <el-row>
+        <el-button type="">存现金打开设备</el-button>
+        <el-button type="">存现金复位设备</el-button>
+        <el-button type="">存现金设备状态</el-button>
+        <el-button type="">存现金打开闸门</el-button>
+        <el-button type="">存现金关闭闸门</el-button>
+        <el-checkbox-group v-model="XJJCED">
+          <el-checkbox label="100"></el-checkbox>
+          <el-checkbox label="50"></el-checkbox>
+          <el-checkbox label="20"></el-checkbox>
+          <el-checkbox label="10"></el-checkbox>
+          <el-checkbox label="5"></el-checkbox>
+          <el-checkbox label="1"></el-checkbox>
+        </el-checkbox-group>
+        <el-button type="">存现金设置是否拒钞</el-button>
+        <el-input v-model="XJCKED" placeholder="请设置存款限额"></el-input>
+        <el-button type="">存现金存款限额</el-button>
+        <el-select v-model="XJCQX" placeholder="请选择现金存钱模式">
+            <el-option v-for="item in XJCQXs" :value="item.value" :label="item.label"></el-option>
+        </el-select>
+        <el-button type="">存现金开始存钱</el-button>
+        <el-button type="">存现金存钱</el-button>
+        <el-button type="">存现金结束存钱</el-button>
+        <el-button type="">获取上一笔存款结果</el-button>
+        <el-button type="">取消存款</el-button>
+        <el-button type="">获取钞箱详细信息</el-button>
+        <el-button type="">钞箱信息查询(循环箱)</el-button>
+        <el-button type="">钞箱信息查询（单存箱）</el-button>
+        <el-button type="">存现金点钞</el-button>
+        <el-input v-model="XJCXH" placeholder="请输入钞箱号"></el-input>
+        <el-input v-model="XJME" placeholder="请输入面额"></el-input>
+        <el-input v-model="XJSL" placeholder="请输入数量"></el-input>
+        <el-select v-model="XJJC" placeholder="请选择钞箱类型">
+            <el-option v-for="item in XJJCs" :value="item.value" :label="item.label"></el-option>
+        </el-select>
+        <el-button type="">存现金加钞</el-button>
+        <el-button type="">存现金清机</el-button>
+    </el-row>
+    <el-row>
+        <el-button type="">取现金打开设备</el-button>
+        <el-button type="">取现金重置设备</el-button>
+        <el-button type="">取现金清机</el-button>
+        <el-button type="">取现金钞箱信息查询</el-button>
+        <el-button type="">取现金设备状态</el-button>
+        <el-button type="">取现金获取钞口信息</el-button>
+        <el-input v-model="QXPE" placeholder="请输入配额"></el-input>
+        <el-button type="">取现金设置配额</el-button>
+        <el-button type="">取现金打开闸门</el-button>
+        <el-input v-model="QXQKJE" placeholder="请输入取款金额"></el-input>
+        <el-button type="">取现金取款</el-button>
+        <el-button type="">取现金关闭闸门</el-button>
+        <el-button type="">取现金取钞获取上一笔信息（异常调用）</el-button>
+    </el-row>
+    <el-row>
+      <el-button type="" @click="PJSopen">票据受理打开设备</el-button>
+      <el-button type=""  @click="PJSreset">票据受理复位设备</el-button>
+      <el-button type=""  @click="PJSread">票据受理读票</el-button>
+      <el-button type=""  @click="PJScancel">票据受理取消读票</el-button>
+      <el-button type=""  @click="PJStun">票据受理吞票</el-button>
+      <el-button type=""  @click="PJStui">票据受理吐票</el-button>
+      <el-button type="" @click="PJSStatus">票据受理设备状态</el-button>
+    </el-row>
+    <el-row>
+        <el-button type=""   @click="PJMopen">票据售卖打开设备</el-button>
+        <el-button type="" @click="PJMreset">票据售卖复位设备</el-button>
+        <el-button type=""  @click="PJMtui">票据售卖吐票</el-button>
+        <el-button type="" @click="PJMStatus">票据售卖设备状态</el-button>
+        <el-button type=""  @click="PJMprint">票据售卖打印</el-button>
+        <el-button type=""  @click="PJMread">票据售卖扫描</el-button>
+      </el-row>
+      <el-row>
+        <el-button type="" @click="CZopen">存折打开设备</el-button>
+        <el-button type=""  @click="CZreset">存折复位设备</el-button>
+        <el-button type=""  @click="CZStatus">存折设备状态</el-button>
+        <el-button type="" @click="CZread">存折读折后退折</el-button>
+        <!-- <el-button type="">存折发送打印内容</el-button>
+        <el-button type="">存折打印退折</el-button> -->
+        <el-button type="" @click="CZtui">存折退折</el-button>
+        <el-button type="" @click="CZform">存折表单打印</el-button>
+      </el-row>
+      <el-row>
+        <el-button type="" @click="speekText">文本语音</el-button>
+        <el-button type="" @click="SetLocal">保存本地数据</el-button>
+        <el-button type=""  @click="GetLocal">获取本地数据</el-button>
+        <el-button type="" @click="getMac">获取本机MAC</el-button>
+        <el-button type="" @click="getIP">获取本机IP</el-button>
+        <el-button type="" @click="uploadFile">上传文件</el-button>
+        <el-button type="" @click="downloadFile">下载文件</el-button>
+        <el-button type="" @click="delFile">删除文件</el-button>
+        <el-button type="" @click="delFolder">删除文件夹</el-button>
+        <el-button type="" @click="IsExists">文件是否为空</el-button>
+        <!-- <el-button type="">获取压感信息</el-button> -->
+        <!-- <el-button type="">关闭服务</el-button>
+        <el-button type="">启动服务</el-button> -->
+        <el-button type="" @click="setSysTime">设置时间</el-button>
+      </el-row>
+      <el-row>
+       社保卡暂无   
+      </el-row>
+</div>
